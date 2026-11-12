@@ -1,17 +1,10 @@
 #ifndef RENDERER_HPP
 #define RENDERER_HPP
 
+#include "camera/camera.hpp"
+
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-
-
-struct Camera {
-    glm::mat4 view{1.0f};
-    glm::mat4 projection{1.0f};
-    glm::vec3 position{0.0f};
-
-    glm::mat4 ViewProjection() const { return projection * view; }
-};
 
 // Where a renderer draws.
 struct RenderTarget {
@@ -24,7 +17,7 @@ struct RenderTarget {
 
 // Per-frame state passed to Render().
 struct FrameContext {
-    Camera camera;
+    CameraState camera;
     RenderTarget target;
     float time = 0.0f;
     float deltaTime = 0.0f;

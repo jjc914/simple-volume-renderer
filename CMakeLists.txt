@@ -45,9 +45,18 @@ target_include_directories(stb_image INTERFACE vendor/stbimage)
 
 # --- Application -----------------------------------------------------------
 
-add_executable(simple_volume_renderer src/main.cpp)
+add_executable(simple_volume_renderer
+    src/main.cpp
+    src/application.cpp
+    src/camera/orbit_camera.cpp
+    src/file.cpp
+    src/volume.cpp
+    src/transfer_function.cpp
+    src/opengl/shader.cpp
+    src/renderers/grid_volume_renderer.cpp
+)
 
-target_include_directories(simple_volume_renderer PRIVATE include)
+target_include_directories(simple_volume_renderer PRIVATE src)
 target_link_libraries(simple_volume_renderer PRIVATE
     glfw glad tinyobjloader imgui glm stb_image
 )

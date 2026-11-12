@@ -1,0 +1,5 @@
+size: 32 32 32
+type: 2
+nVars: 1
+stretch: 1 1 1
+var1: Density
